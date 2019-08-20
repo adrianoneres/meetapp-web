@@ -25,7 +25,6 @@ export const Profile = styled.div`
   display: flex;
   margin-left: 20px;
   padding-left: 20px;
-  
 
   div {
     text-align: right;
