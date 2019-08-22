@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { MdCameraAlt } from 'react-icons/md';
 import { useField } from '@rocketseat/unform';
-import api from '~/services/api';
 
+import api from '~/services/api';
 import { Container } from './styles';
 
 export default function FileInput({ name, defaultUrl }) {
-  const { fieldName, defaultValue, registerField } = useField(name);
+  const { fieldName, defaultValue, registerField, error } = useField(name);
 
   const [file, setFile] = useState(defaultValue && defaultValue.id);
   const [preview, setPreview] = useState(defaultUrl && defaultValue.url);
@@ -43,8 +44,14 @@ export default function FileInput({ name, defaultUrl }) {
   return (
     <Container>
       <label htmlFor="file">
-        <img src={preview} alt="" />
-
+        {preview ? (
+          <img src={preview} alt="" />
+        ) : (
+          <div>
+            <MdCameraAlt color="#999" size={50} />
+            <span>Selecionar imagem</span>
+          </div>
+        )}
         <input
           type="file"
           id="file"
@@ -54,11 +61,17 @@ export default function FileInput({ name, defaultUrl }) {
           ref={ref}
         />
       </label>
+      <br />
+      {error && <span>{error}</span>}
     </Container>
   );
 }
 
+FileInput.defaultProps = {
+  defaultUrl: null,
+};
+
 FileInput.propTypes = {
   name: PropTypes.string.isRequired,
-  defaultUrl: PropTypes.string.isRequired,
+  defaultUrl: PropTypes.string,
 };

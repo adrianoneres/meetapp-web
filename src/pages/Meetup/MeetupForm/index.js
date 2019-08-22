@@ -3,12 +3,24 @@ import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import { Form, Input } from '@rocketseat/unform';
 import { parseISO } from 'date-fns';
+import { MdAddCircleOutline } from 'react-icons/md';
+import * as Yup from 'yup';
 
 import api from '~/services/api';
 import history from '~/services/history';
 import DatePicker from './DatePicker';
 import FileInput from './FileInput';
 import { Container } from './styles';
+
+const schema = Yup.object().shape({
+  title: Yup.string().required('O título é obrigatório.'),
+  description: Yup.string().required('A descrição é obrigatória.'),
+  location: Yup.string().required('A localização é obrigatória.'),
+  date: Yup.date()
+    .min(new Date(), 'A data deve ser uma data futura.')
+    .required('A data é obrigatória.'),
+  file_id: Yup.number().required('A imagem é obrigatória.'),
+});
 
 export default function MeetupForm({ match }) {
   const { id } = match.params;
@@ -55,13 +67,16 @@ export default function MeetupForm({ match }) {
 
   return (
     <Container>
-      <Form initialData={meetup} onSubmit={handleSubmit}>
+      <Form initialData={meetup} schema={schema} onSubmit={handleSubmit}>
         <FileInput name="file_id" defaultUrl={meetup.url} />
         <Input name="title" placeholder="Título do Meetup" />
         <Input name="description" placeholder="Descrição completa" />
         <DatePicker name="date" placeholder="Data do meetup" />
         <Input name="location" placeholder="Localização" />
-        <button type="submit">Salvar meetup</button>
+        <button type="submit">
+          <MdAddCircleOutline color="#fff" size={20} />
+          <span>Salvar meetup</span>
+        </button>
       </Form>
     </Container>
   );
