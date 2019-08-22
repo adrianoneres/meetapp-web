@@ -38,4 +38,12 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
+
+  .react-datepicker__input-container {
+      width: 100%;
+
+      input {
+        width: 100%;
+      }
+    }
 `;

@@ -46,7 +46,7 @@ export const Profile = styled.div`
   button {
     padding: 0 20px;
     height: 42px;
-    background: #f94d6a;
+    background: #d44059;
     font-weight: bold;
     color: #fff;
     border: 0;
@@ -55,7 +55,7 @@ export const Profile = styled.div`
     transition: background 0.2s;
 
     &:hover {
-      background: ${darken(0.05, '#f94d6a')};
+      background: ${darken(0.05, '#d44059')};
     }
   }
 `;

@@ -35,7 +35,7 @@ export const Content = styled.div`
     }
 
     span {
-      color: #f94d6a;
+      color: #d44059;
       align-self: flex-start;
       margin: 0 0 10px;
       font-weight: bold;
@@ -44,7 +44,7 @@ export const Content = styled.div`
     button {
       margin: 5px 0 0;
       height: 50px;
-      background: #f94d6a;
+      background: #d44059;
       font-weight: bold;
       color: #fff;
       border: 0;
@@ -53,7 +53,7 @@ export const Content = styled.div`
       transition: background 0.2s;
 
       &:hover {
-        background: ${darken(0.05, '#f94d6a')};
+        background: ${darken(0.05, '#d44059')};
       }
     }
 

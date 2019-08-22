@@ -24,6 +24,11 @@ export const Container = styled.div`
       }
     }
 
+    textarea {
+      height: 200px;
+      font-size: 14px;
+    }
+
     span {
       color: #d44059;
       align-self: flex-start;
@@ -38,7 +43,7 @@ export const Container = styled.div`
       margin: 10px 0 20px;
     }
 
-    button {
+    > button {
       margin: 5px 0 0;
       height: 50px;
       background: #d44059;
@@ -51,17 +56,6 @@ export const Container = styled.div`
 
       &:hover {
         background: ${darken(0.05, '#d44059')};
-      }
-    }
-
-    a {
-      color: #fff;
-      margin-top: 15px;
-      font-size: 16px;
-      opacity: 0.8;
-
-      &:hover {
-        opacity: 1;
       }
     }
   }

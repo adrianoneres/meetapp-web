@@ -14,10 +14,10 @@ export const Container = styled.div`
     align-items: center;
     color: #fff;
 
-    button {
+    a {
       padding: 0 20px;
       height: 42px;
-      background: #f94d6a;
+      background: #d44059;
       font-weight: bold;
       color: #fff;
       border: 0;
@@ -25,8 +25,15 @@ export const Container = styled.div`
       font-size: 16px;
       transition: background 0.2s;
 
+      display: flex;
+      align-items: center;
+
+      svg {
+        margin-right: 8px;
+      }
+
       &:hover {
-        background: ${darken(0.05, '#f94d6a')};
+        background: ${darken(0.05, '#d44059')};
       }
     }
   }
